@@ -31,6 +31,11 @@ grant connect to skarnddydwls;
 grant resource to skarnddydwls;
 grant create table to skarnddydwls;
 
+-- 만약 RESOURCE로 테이블이 생성이 안되면
+grant create table to skarnddydwls;
+-- 만약 SEQUENCE가 생성이 안되면
+grant create sequence to skarnddydwls;
+
 -- 용량의 제한없이 테이블스페이스 할당하는 경우
 alter user skarnddydwls default tablespace users quota unlimited on users;
 
@@ -42,3 +47,6 @@ alter SESSION set "_oracle_script" = true;
 create user user1 identified by 1234;
 grant connect, resource to 계정명;
 alter user 계정명 default tablespace users quota UNLIMITED on users;
+
+-- user 삭제
+drop user skarnddydwls cascade; -- 테이블 있을때는 cascade를 붙여준다
